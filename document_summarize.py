@@ -16,10 +16,10 @@ from tempfile import NamedTemporaryFile
 from PyPDF2 import PdfFileReader
 
 headers = {
-    "authorization":st.secrets['api_secret_token'],
+    "authorization":st.secrets['auth_token'],
     "content-type":"application/json"
     }
-openai.api_key = st.secrets["api_secret_token"]
+openai.api_key = st.secrets["auth_key"]
 
 st.title('Text Summarization')
 #st.write('upload pdf file for summarization')
