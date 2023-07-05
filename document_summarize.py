@@ -1,6 +1,6 @@
 import os
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv(), override=True)
+# from dotenv import load_dotenv, find_dotenv
+# load_dotenv(find_dotenv(), override=True)
 
 from langchain.chat_models import ChatOpenAI
 from langchain import PromptTemplate
@@ -11,6 +11,10 @@ import streamlit as st
 from tempfile import NamedTemporaryFile
 from PyPDF2 import PdfFileReader
 
+headers = {
+    "authorization":st.secrets['auth_token'],
+    "content-type="application/json"
+    }
 
 st.title('Text Summarization')
 #st.write('upload pdf file for summarization')
