@@ -16,7 +16,7 @@ from tempfile import NamedTemporaryFile
 from PyPDF2 import PdfFileReader
 
 headers = {
-    "authorization":st.secrets['auth_token'],
+    "authorization":st.secrets['auth_key'],
     "content-type":"application/json"
     }
 openai.api_key = st.secrets["auth_key"]
