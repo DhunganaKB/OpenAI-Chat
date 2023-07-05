@@ -1,0 +1,6 @@
+langchain
+streamlit
+tempfile
+PyPDF2
+unstructured
+pdf2image
