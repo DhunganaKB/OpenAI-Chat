@@ -13,7 +13,7 @@ from PyPDF2 import PdfFileReader
 
 headers = {
     "authorization":st.secrets['openai_api_token'],
-    "content-type="application/json"
+    "content-type"="application/json"
     }
 
 st.title('Text Summarization')
