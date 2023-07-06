@@ -5,8 +5,6 @@ import streamlit as st
 # pip install streamlit-chat  
 from streamlit_chat import message
 
-st.secrets.load_config()
-
 # from dotenv import load_dotenv, find_dotenv
 # load_dotenv(find_dotenv(), override=True)
 
