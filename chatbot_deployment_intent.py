@@ -11,8 +11,10 @@ st.secrets.load_config()
 # load_dotenv(find_dotenv(), override=True)
 
 headers = {
-    "authorization":st.secrets['OPENAI_API_KEY']['PINECONE_API_KEY']['PINECONE_ENV_NAME'],
-    "content-type":"application/json"
+    "authorization":st.secrets['OPENAI_API_KEY'],
+    "content-type":"application/json",
+    "pinecone-api-key":st.secrets['PINECONE_API_KEY'],
+    "pinecone-env-name":st.secrets['PINECONE_ENV_NAME']
     }
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
