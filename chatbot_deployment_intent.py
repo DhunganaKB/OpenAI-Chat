@@ -5,9 +5,14 @@ import streamlit as st
 # pip install streamlit-chat  
 from streamlit_chat import message
 
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv(), override=True)
+# from dotenv import load_dotenv, find_dotenv
+# load_dotenv(find_dotenv(), override=True)
 
+headers = {
+    "authorization":st.secrets['OPENAI_API_KEY']['PINECONE_API_KEY']['PINECONE_ENV_NAME'],
+    "content-type":"application/json"
+    }
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 def insert_or_fetch_embeddings(index_name):
     import pinecone
@@ -16,7 +21,8 @@ def insert_or_fetch_embeddings(index_name):
     
     embeddings = OpenAIEmbeddings()
     
-    pinecone.init(api_key=os.environ.get('PINECONE_API_KEY'), environment=os.environ.get('PINECONE_ENV_NAME'))
+    #pinecone.init(api_key=os.environ.get('PINECONE_API_KEY'), environment=os.environ.get('PINECONE_ENV_NAME'))
+    pinecone.init(api_key=st.secrets["PINECONE_API_KEY"], environment=st.secrets["PINECONE_ENV_NAME"])
     
     if index_name in pinecone.list_indexes():
         print(f'Index {index_name} already exists. Loading embeddings ... ', end='')
@@ -47,7 +53,6 @@ def ask_with_memory(vector_store, question, chat_history=[]):
     return result, chat_history
 
 st.title("ChatBot : INTENT")
-
 
 chat_history=[]
 #question = st.text_input('Enter your question')
