@@ -3,4 +3,5 @@ streamlit
 langchain
 pinecone-client
 tiktoken
+streamlit_chat
 
