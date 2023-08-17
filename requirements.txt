@@ -4,5 +4,5 @@ langchain
 pinecone-client
 tiktoken
 streamlit_chat
-pymongo
+
 
