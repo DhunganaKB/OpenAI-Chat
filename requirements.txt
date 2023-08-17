@@ -1,11 +1,6 @@
 openai
 streamlit
 langchain
-streamlit
-PyPDF2
-unstructured
-pdf2image
 streamlit_chat
 pinecone-client
-tiktoken
 
