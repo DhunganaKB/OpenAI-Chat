@@ -7,4 +7,5 @@ unstructured
 pdf2image
 streamlit_chat
 pinecone-client
+tiktoken
 
