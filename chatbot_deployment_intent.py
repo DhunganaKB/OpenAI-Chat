@@ -38,7 +38,7 @@ def insert_or_fetch_embeddings(index_name):
         print('Ok')        
     return vector_store
 
-index_name='intentdocument'
+index_name='intentdocument-index'
 vector_store = insert_or_fetch_embeddings(index_name)
 
 def ask_with_memory(vector_store, question, chat_history=[]):
