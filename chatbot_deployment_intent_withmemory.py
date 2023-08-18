@@ -17,7 +17,6 @@ headers = {
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 st.title('Simple question answer chatbot')
-question = st.text_input("write your questions: ", key="input")
    
 embeddings = OpenAIEmbeddings()    
 pinecone.init(api_key=st.secrets["PINECONE_API_KEY"], environment=st.secrets["PINECONE_ENV_NAME"])
