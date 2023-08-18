@@ -22,12 +22,12 @@ CONNECTION_STRING = st.secrets["CONNECTION_STRING"]
 USERNAME = st.secrets["USERNAME"]
 PW = st.secrets["PW"]
 
-st.write(CONNECTION_STRING)
-st.write(USERNAME)
-st.write(PW)
+# st.write(CONNECTION_STRING)
+# st.write(USERNAME)
+# st.write(PW)
 
-CONNECTION_STRING =f"mongodb+srv://{USERNAME}:{PW}@cluster0.wjj4auk.mongodb.net/?retryWrites=true&w=majority"
-st.write(CONNECTION_STRING)
+# CONNECTION_STRING =f"mongodb+srv://{USERNAME}:{PW}@cluster0.wjj4auk.mongodb.net/?retryWrites=true&w=majority"
+# st.write(CONNECTION_STRING)
 
 st.title('Simple question answer chatbot')
    
@@ -41,17 +41,17 @@ def get_mongodb_client():
     client = MongoClient(CONNECTION_STRING)
     return client
 
-client = get_mongodb_client()
-st.write(client)
-db = client['chatbot_db']
-conversation_collection = db['conversations']
-# st.write(db)
-# st.write(conversation_collection)
+# client = get_mongodb_client()
+# st.write(client)
+# db = client['chatbot_db']
+# conversation_collection = db['conversations']
+# # st.write(db)
+# # st.write(conversation_collection)
 
-conversation_collection.insert_one({
-        'question': 'who is Emry',
-        'answer': 'She is from LA'
-    })
+# conversation_collection.insert_one({
+#         'question': 'who is Emry',
+#         'answer': 'She is from LA'
+#     })
 
 
 def ask_with_memory(vector_store, question, chat_history=[]):
@@ -65,13 +65,13 @@ def ask_with_memory(vector_store, question, chat_history=[]):
     result = crc({'question': question, 'chat_history': chat_history})
     chat_history.append((question, result['answer']))
 
-    # client = get_mongodb_client()
-    # db = client['chatbot_db']
-    # conversation_collection = db['conversations']
-    # conversation_collection.insert_one({
-    #     'question': question,
-    #     'answer': result['answer']
-    # })
+    client = get_mongodb_client()
+    db = client['chatbot_db']
+    conversation_collection = db['conversations']
+    conversation_collection.insert_one({
+        'question': question,
+        'answer': result['answer']
+    })
     return result, chat_history
 
 chat_history=[]
