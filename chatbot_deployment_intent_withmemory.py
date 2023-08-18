@@ -18,6 +18,8 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 CONNECTION_STRING = st.secrets["CONNECTION_STRING"]
 
+print(CONNECTION_STRING)
+
 st.title('Simple question answer chatbot')
    
 embeddings = OpenAIEmbeddings()    
