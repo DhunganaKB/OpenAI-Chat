@@ -40,6 +40,8 @@ vector_store = Pinecone.from_existing_index(index_name, embeddings)
 def get_mongodb_client():
     client = MongoClient(CONNECTION_STRING)
     return client
+client = get_mongodb_client()
+st.write(client)
 
 def ask_with_memory(vector_store, question, chat_history=[]):
     from langchain.chains import ConversationalRetrievalChain
