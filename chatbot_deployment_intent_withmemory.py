@@ -5,6 +5,7 @@ from langchain.memory import MongoDBChatMessageHistory
 import pinecone
 from langchain.vectorstores import Pinecone
 from langchain.embeddings.openai import OpenAIEmbeddings
+import openai
 
 headers = {
     "authorization":st.secrets['OPENAI_API_KEY'],
