@@ -42,9 +42,9 @@ ca = certifi.where()
 import ssl
 
 def get_mongodb_client():
-    client = MongoClient(CONNECTION_STRING, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
+    client = MongoClient(CONNECTION_STRING,tls=True, tlsAllowInvalidCertificates=True)
     return client
-    
+
 client = get_mongodb_client()
 st.write(client)
 db = client['chatbot_db']
