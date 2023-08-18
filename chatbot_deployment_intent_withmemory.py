@@ -38,7 +38,7 @@ index_name='intentdocument-index'
 vector_store = Pinecone.from_existing_index(index_name, embeddings)
 
 def get_mongodb_client():
-    client = MongoClient(CONNECTION_STRING)
+    client = MongoClient(CONNECTION_STRING, ssl=True)
     return client
 client = get_mongodb_client()
 st.write(client)
