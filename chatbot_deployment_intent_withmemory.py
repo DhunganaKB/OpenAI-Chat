@@ -1,6 +1,7 @@
 import os
 import openai
 import streamlit as st
+from pymongo import MongoClient
 
 # pip install streamlit-chat
 from streamlit_chat import message
@@ -40,6 +41,11 @@ def insert_or_fetch_embeddings(index_name):
         print('Ok')
     return vector_store
 
+def get_mongodb_client():
+    client = MongoClient(st.secrets['CONNECTION_STRING'])
+    return client
+
+
 index_name='intentdocument-index'
 vector_store = insert_or_fetch_embeddings(index_name)
 
@@ -54,6 +60,14 @@ def ask_with_memory(vector_store, question, chat_history=[]):
     result = crc({'question': question, 'chat_history': chat_history})
     chat_history.append((question, result['answer']))
 
+    client = get_mongodb_client()
+    db = client['chatbot_db']
+    conversation_collection = db['conversations']
+    conversation_collection.insert_one({
+        'question': question,
+        'answer': result['answer']
+    })
+    
     return result, chat_history
 
 st.title("ChatBot : INTENT")
