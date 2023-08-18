@@ -83,7 +83,7 @@ if 'past' not in st.session_state:
 
 query = st.text_input("Query: ", key="input")
 
-message_history = MongoDBChatMessageHistory(connection_string=st.secrets["CONNECTION_STRING"], session_id="test1")
+#message_history = MongoDBChatMessageHistory(connection_string=st.secrets["CONNECTION_STRING"], session_id="test1")
 
 if query:
     result, chat_history = ask_with_memory(vector_store, question=query, chat_history=chat_history)
