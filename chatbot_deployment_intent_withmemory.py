@@ -47,6 +47,12 @@ conversation_collection = db['conversations']
 st.write(db)
 st.write(conversation_collection)
 
+conversation_collection.insert_one({
+        'question': 'who is Emry',
+        'answer': 'She is from LA'
+    })
+
+
 def ask_with_memory(vector_store, question, chat_history=[]):
     from langchain.chains import ConversationalRetrievalChain
     from langchain.chat_models import ChatOpenAI
