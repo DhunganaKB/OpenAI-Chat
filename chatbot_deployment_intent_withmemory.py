@@ -79,7 +79,7 @@ if query:
     message_history.add_user_message(result["question"])
     message_history.add_ai_message(result["answer"])
     #print(answer)
-    #st.write(answer)
+    st.write(answer)
 if st.session_state['generated']:
 
     for i in range(len(st.session_state['generated'])-1, -1, -1):
