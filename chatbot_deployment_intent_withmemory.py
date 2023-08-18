@@ -37,9 +37,13 @@ pinecone.init(api_key=st.secrets["PINECONE_API_KEY"], environment=st.secrets["PI
 index_name='intentdocument-index'
 vector_store = Pinecone.from_existing_index(index_name, embeddings)
 
+import certifi
+ca = certifi.where()
+
 def get_mongodb_client():
-    client = MongoClient(CONNECTION_STRING, ssl=True)
+    client = MongoClient(CONNECTION_STRING, tlsCAFile=ca)
     return client
+    
 client = get_mongodb_client()
 st.write(client)
 db = client['chatbot_db']
