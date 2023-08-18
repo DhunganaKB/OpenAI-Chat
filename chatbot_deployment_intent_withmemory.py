@@ -39,6 +39,7 @@ vector_store = Pinecone.from_existing_index(index_name, embeddings)
 
 import certifi
 ca = certifi.where()
+import ssl
 
 def get_mongodb_client():
     client = MongoClient(CONNECTION_STRING, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
