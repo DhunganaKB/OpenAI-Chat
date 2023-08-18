@@ -41,13 +41,13 @@ def ask_with_memory(vector_store, question, chat_history=[]):
     result = crc({'question': question, 'chat_history': chat_history})
     chat_history.append((question, result['answer']))
 
-    client = get_mongodb_client()
-    db = client['chatbot_db']
-    conversation_collection = db['conversations']
-    conversation_collection.insert_one({
-        'question': question,
-        'answer': result['answer']
-    })
+    # client = get_mongodb_client()
+    # db = client['chatbot_db']
+    # conversation_collection = db['conversations']
+    # conversation_collection.insert_one({
+    #     'question': question,
+    #     'answer': result['answer']
+    # })
     return result, chat_history
 
 chat_history=[]
