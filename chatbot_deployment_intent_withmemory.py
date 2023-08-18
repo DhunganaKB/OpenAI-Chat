@@ -41,7 +41,7 @@ import certifi
 ca = certifi.where()
 
 def get_mongodb_client():
-    client = MongoClient(CONNECTION_STRING, tlsCAFile=ca)
+    client = MongoClient(CONNECTION_STRING, ssl_cert_reqs=ssl.CERT_NONE)
     return client
     
 client = get_mongodb_client()
