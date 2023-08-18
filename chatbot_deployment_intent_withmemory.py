@@ -26,6 +26,9 @@ st.write(CONNECTION_STRING)
 st.write(USERNAME)
 st.write(PW)
 
+CONNECTION_STRING =f"mongodb+srv://{USERNAME}:{PW}@cluster0.wjj4auk.mongodb.net/?retryWrites=true&w=majority"
+st.write(CONNECTION_STRING)
+
 st.title('Simple question answer chatbot')
    
 embeddings = OpenAIEmbeddings()    
