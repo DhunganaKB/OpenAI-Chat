@@ -24,7 +24,7 @@ PW = st.secrets["PW"]
 
 st.write(CONNECTION_STRING)
 st.write(USERNAME)
-st.writ(PW)
+st.write(PW)
 
 st.title('Simple question answer chatbot')
    
