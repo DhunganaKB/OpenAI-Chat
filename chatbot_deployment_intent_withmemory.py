@@ -12,13 +12,19 @@ headers = {
     "content-type":"application/json",
     "connection_string":st.secrets['CONNECTION_STRING'],
     "pinecone-api-key":st.secrets['PINECONE_API_KEY'],
-    "pinecone-env-name":st.secrets['PINECONE_ENV_NAME']
+    "pinecone-env-name":st.secrets['PINECONE_ENV_NAME'],
+    "mongodb_username":st.secrets['USERNAME'],
+    "mongodb_pw":st.secrets['PW']
     }
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 CONNECTION_STRING = st.secrets["CONNECTION_STRING"]
+USERNAME = st.secrets["USERNAME"]
+PW = st.secrets["PW"]
 
 st.write(CONNECTION_STRING)
+st.write(USERNAME)
+st.writ(PW)
 
 st.title('Simple question answer chatbot')
    
