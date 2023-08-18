@@ -90,8 +90,8 @@ if query:
     answer = result['answer']
     st.session_state.past.append(query)
     st.session_state.generated.append(answer)
-    message_history.add_user_message(result["question"])
-    message_history.add_ai_message(result["answer"])
+    # message_history.add_user_message(result["question"])
+    # message_history.add_ai_message(result["answer"])
     #print(answer)
     st.write(answer)
 if st.session_state['generated']:
