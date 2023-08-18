@@ -42,6 +42,10 @@ def get_mongodb_client():
     return client
 client = get_mongodb_client()
 st.write(client)
+db = client['chatbot_db']
+conversation_collection = db['conversations']
+st.write(db)
+st.write(conversation_collection)
 
 def ask_with_memory(vector_store, question, chat_history=[]):
     from langchain.chains import ConversationalRetrievalChain
