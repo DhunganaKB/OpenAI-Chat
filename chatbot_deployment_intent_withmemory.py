@@ -26,7 +26,7 @@ st.write(CONNECTION_STRING)
 st.write(USERNAME)
 st.write(PW)
 
-CONNECTION_STRING =f"mongodb+srv://{USERNAME}:{PW}@cluster0.wjj4auk.mongodb.net/?retryWrites=true&w=majority&ssl=true"
+CONNECTION_STRING =f"mongodb+srv://{USERNAME}:{PW}@cluster0.wjj4auk.mongodb.net/?retryWrites=true&w=majority"
 st.write(CONNECTION_STRING)
 
 st.title('Simple question answer chatbot')
@@ -44,8 +44,8 @@ client = get_mongodb_client()
 st.write(client)
 db = client['chatbot_db']
 conversation_collection = db['conversations']
-st.write(db)
-st.write(conversation_collection)
+# st.write(db)
+# st.write(conversation_collection)
 
 conversation_collection.insert_one({
         'question': 'who is Emry',
