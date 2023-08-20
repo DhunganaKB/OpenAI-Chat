@@ -22,7 +22,8 @@ CONNECTION_STRING = st.secrets["CONNECTION_STRING"]
 embeddings = OpenAIEmbeddings()   
 pinecone.init(api_key=st.secrets["PINECONE_API_KEY"], environment=st.secrets["PINECONE_ENV_NAME"]) 
 
-index_name='intentdocument-index'
+#index_name='intentdocument-index'
+index_name='pilotsurvey'
 vector_store = Pinecone.from_existing_index(index_name, embeddings)
 
 def get_mongodb_client():
