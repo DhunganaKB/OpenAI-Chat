@@ -16,7 +16,7 @@ headers = {
     }
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
-st.title('Pilot Program for')
+st.title('Pilot Program for Neste')
 CONNECTION_STRING = st.secrets["CONNECTION_STRING"]
 
 embeddings = OpenAIEmbeddings()   
