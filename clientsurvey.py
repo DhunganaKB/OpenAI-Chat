@@ -6,7 +6,6 @@ from langchain.vectorstores import Pinecone
 from langchain.embeddings.openai import OpenAIEmbeddings
 import openai
 
-from read import *
 import yagmail
 from email.message import EmailMessage
 import smtplib
