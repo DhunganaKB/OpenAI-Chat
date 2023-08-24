@@ -6,6 +6,11 @@ from langchain.vectorstores import Pinecone
 from langchain.embeddings.openai import OpenAIEmbeddings
 import openai
 
+from read import *
+import yagmail
+from email.message import EmailMessage
+import smtplib
+
 ## This is online version, the local copy is older version
 headers = {
     "authorization":st.secrets['OPENAI_API_KEY'],
@@ -77,8 +82,26 @@ if user_name and user_email:
                 'user_name':user_name,
                 'user_email':user_email,
                 'question':'are you interested in this program?',
-                'answer':message
-            })
+                'answer':message})
+            if 'yes' in message.lower():
+                msg = EmailMessage()
+                contacts = [user_email]
+                msg['Subject'] = 'Invitation From INTENT'
+                msg['From'] = 'dhunganain23@gmail.com'
+                msg['To'] = ', '.join(contacts)
+                
+                msg.set_content(f'''\n Dear {user_name},\n Hope this email find you well. We would like to invite you to participate in the sustaibale agricuture pilot program. Thank you for showing you interest.
+                please find the link below to proceed a head: https://intent.ag/ .
+                \n
+                Thanks\n
+                \n''')
+                
+                with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+                    smtp.login('dhunganain23@gmail.com', 'dbszoxlqycoidmyi')
+                    smtp.send_message(msg)
+                    
+                
+        
 
 
 
