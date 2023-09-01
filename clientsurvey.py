@@ -60,7 +60,7 @@ def ask_with_memory(vector_store, user_name, user_email, question, conversation_
 
 chat_history=[]
 
-st.write("Please provide your name and email address to activate the chabot.")
+st.write("**Please provide your name and email address to activate the chabot.**")
 user_name = st.text_input("Your Name:")
 user_email = st.text_input("Your Email:")
 
@@ -75,7 +75,7 @@ if user_name and user_email:
         st.write(result['answer'])
 
     with st.form(key='myform', clear_on_submit=True):
-        message = st.text_area("Will you be interested in participing in this program? Please answer yes or no.", height=10)
+        message = st.text_area("**Will you be interested in participing in this program? Please answer yes or no.**", height=10)
         submit_button = st.form_submit_button("Submit")
         if submit_button:
             conversation_collection.insert_one({
@@ -97,7 +97,7 @@ if user_name and user_email:
                 \n''')
                 
                 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-                    smtp.login('dhunganain23@gmail.com', 'dbszoxlqycoidmyi')
+                    smtp.login('dhunganain23@gmail.com', 'dlszoxlqycoidmyi')
                     smtp.send_message(msg)
                 st.write(f"We have sent you an email with additional information at {user_email}, Please kindly check your email and let us know if you have any other questions")  
             st.write('Thank you for participating this survey')
