@@ -60,12 +60,12 @@ def ask_with_memory(vector_store, user_name, user_email, question, conversation_
 
 chat_history=[]
 
-st.write("Please provide your name and email address")
+st.write("Please provide your name and email address to activate the chabot.")
 user_name = st.text_input("Your Name:")
 user_email = st.text_input("Your Email:")
 
 if user_name and user_email:
-    question = st.text_input("if you have any questions about this program, write your questions: ", key="input")
+    question = st.text_input("if you have any questions about this program, please write your questions: ", key="input")
 
     if question:
         result, chat_history = ask_with_memory(vector_store, user_name, user_email, question, conversation_collection, chat_history=chat_history)
