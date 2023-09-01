@@ -20,7 +20,8 @@ headers = {
     }
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
-st.title('INTENT Pilot Program For Sustainable Double-Crop Soybean Production - Survey Chatbot')
+st.title('INTENT Pilot Program - Survey Chatbot')
+st.write('(This program is about sustainable douple-crop soybean production)')
 CONNECTION_STRING = st.secrets["CONNECTION_STRING"]
 
 embeddings = OpenAIEmbeddings()   
