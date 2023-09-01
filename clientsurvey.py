@@ -20,7 +20,7 @@ headers = {
     }
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
-st.title('Pilot Program for Neste')
+st.title('INTENT Pilot Program For Sustainable Double-Crop Soybean Production - Survey Chatbot')
 CONNECTION_STRING = st.secrets["CONNECTION_STRING"]
 
 embeddings = OpenAIEmbeddings()   
@@ -59,7 +59,7 @@ def ask_with_memory(vector_store, user_name, user_email, question, conversation_
 
 chat_history=[]
 
-st.write("Please Provide your name and email adress:")
+st.write("Please provide your name and email address")
 user_name = st.text_input("Your Name:")
 user_email = st.text_input("Your Email:")
 
