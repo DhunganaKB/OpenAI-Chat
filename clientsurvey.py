@@ -83,23 +83,23 @@ if user_name and user_email:
                 'user_email':user_email,
                 'question':'are you interested in this program?',
                 'answer':message})
-            if 'yes' in message.lower():
-                msg = EmailMessage()
-                contacts = [user_email]
-                msg['Subject'] = 'Invitation From INTENT'
-                msg['From'] = 'dhunganain23@gmail.com'
-                msg['To'] = ', '.join(contacts)
+            # if 'yes' in message.lower():
+            #     msg = EmailMessage()
+            #     contacts = [user_email]
+            #     msg['Subject'] = 'Invitation From INTENT'
+            #     msg['From'] = 'dhunganain23@gmail.com'
+            #     msg['To'] = ', '.join(contacts)
                 
-                msg.set_content(f'''\n Dear {user_name},\n\n Hope this email find you well. We would like to invite you to participate in the sustaibale agricuture pilot program. Thank you for showing you interest. Please find the link below to proceed a head: https://intent.ag/ .
-                \n
-                Thanks\n
-                INTENT
-                \n''')
+            #     msg.set_content(f'''\n Dear {user_name},\n\n Hope this email find you well. We would like to invite you to participate in the sustaibale agricuture pilot program. Thank you for showing you interest. Please find the link below to proceed a head: https://intent.ag/ .
+            #     \n
+            #     Thanks\n
+            #     INTENT
+            #     \n''')
                 
-                with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-                    smtp.login('dhunganain23@gmail.com', 'dlszoxlqycoidmyi')
-                    smtp.send_message(msg)
-                st.write(f"We have sent you an email with additional information at {user_email}, Please kindly check your email and let us know if you have any other questions")  
+            #     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+            #         smtp.login('dhunganain23@gmail.com', 'dlszoxlqycoidmyi')
+            #         smtp.send_message(msg)
+            #     st.write(f"We have sent you an email with additional information at {user_email}, Please kindly check your email and let us know if you have any other questions")  
             st.write('Thank you for participating this survey')
 
 
