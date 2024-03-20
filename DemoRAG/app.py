@@ -12,7 +12,7 @@ import streamlit as st
 
 
 # OpenAI API Key
-os.environ["OPENAI_API_KEY"] = "sk-G7F9rdGowYYWegj5ny3nbkilbkFJjxxFUP5F6AKKaSVTGQw"
+os.environ["OPENAI_API_KEY"] = "Your OPENAI API KEY"
 loader = Docx2txtLoader("Leave Policy.docx")
 data = loader.load()
 
