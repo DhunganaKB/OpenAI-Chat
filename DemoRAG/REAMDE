@@ -1,0 +1,4 @@
+## To run this demo, download app.py and install necessary librarires in your python environment
+## Get OPENAI_API_KEY and replace this apli key by your
+## Replace the document file 'Leave Policy.docx'
+## Run this code as: streamlit run app.py
