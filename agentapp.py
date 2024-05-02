@@ -45,6 +45,7 @@ headers = {
     }
 
 openai.api_key = st.secrets["OPENAI_API_KEY"]
+OPENWEATHERMAP_API_KEY = st.secrets['OPENWEATHERMAP_API_KEY']
 
 os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 os.environ['TAVILY_API_KEY'] = st.secrets['TAVILY_API_KEY']
@@ -63,7 +64,7 @@ st.write(""":blue[Following agents are used in this framwork: Researcher, Coder,
 llm = ChatOpenAI(model="gpt-4-1106-preview")
 
 # Weather tools
-weather_tool = load_tools(["openweathermap-api"], llm)
+weather_tool = load_tools(["openweathermap-api"], llm, openweathermap_api_key=OPENWEATHERMAP_API_KEY)
 
 # Tavily tools - Search tools
 tavily_tool = TavilySearchResults(max_results=5)
