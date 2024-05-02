@@ -13,5 +13,6 @@ langchain_experimental
 langgraph
 pyowm
 numexpr
+google-search-results
 
 
