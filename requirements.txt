@@ -12,5 +12,6 @@ langchain_openai
 langchain_experimental
 langgraph
 pyowm
+numexpr
 
 
