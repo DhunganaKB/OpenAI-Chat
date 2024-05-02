@@ -383,13 +383,13 @@ if st.button('Submit'):
 
         if len(state) > 1:   
 
-            key_name=list(state[-1].keys())[0]
+            #key_name=list(state[-1].keys())[0]
 
-            content=state[-1][key_name]['messages'][0].content
+            #content=state[-1][key_name]['messages'][0].content
 
-            final_agent=state[-1][key_name]['messages'][0].name
+            #final_agent=state[-1][key_name]['messages'][0].name
 
-            st.write(f":blue[{content}]")
+            #st.write(f":blue[{content}]")
             # st.write(f"Final Agent: {final_agent}")
             st.write(":red[Let's check the entire state]")
             st.write(state)
