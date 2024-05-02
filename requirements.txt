@@ -14,5 +14,6 @@ langgraph
 pyowm
 numexpr
 google-search-results
+wikipedia
 
 
