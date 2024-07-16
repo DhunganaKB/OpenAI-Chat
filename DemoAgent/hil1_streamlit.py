@@ -1,4 +1,7 @@
 import os
+import uuid
+import json
+from typing import Optional
 from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import ToolExecutor
 from langgraph.checkpoint.memory import MemorySaver
@@ -12,37 +15,34 @@ from langgraph.prebuilt import ToolInvocation
 from langgraph.graph import END, StateGraph
 from langchain_core.messages import AIMessage
 from langchain_core.messages import HumanMessage
-import uuid
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langchain_core.tools import tool
-import json
-from typing import Optional
 from langchain_core.messages import AIMessage
 import streamlit as st
+from langchain_community.tools.tavily_search import TavilySearchResults
 
 
+## Environment Variable
 OPENAI_API_KEY="sk-proj-xxx" # https://platform.openai.com/account/api-keys
-TAVILY_API_KEY="tvly-xxx" # https://tavily.com/account/api-keys
+TAVILY_API_KEY="tvly-xxxx" # https://tavily.com/account/api-keys
 os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 os.environ['TAVILY_API_KEY'] = TAVILY_API_KEY
 
+# define model - try different models
 model = ChatOpenAI(model='gpt-4o')
-
 
 class State(TypedDict):
     messages: Annotated[list, add_messages]
 
+## define two tools- internet search and simply add
 @tool
-def search(query: str):
-    """Call to surf the web."""
-    # This is a placeholder for the actual implementation
-    # Don't let the LLM know this though 😊
-    return [
-        "It's sunny in San Francisco, but you better look out if you're a Gemini 😈."
-    ]
+def add(x,y):
+    "adding two numbers"
+    return x+y
 
-tools = [search]
+tools = [TavilySearchResults(max_results=1), add]
 
+#
 tool_executor = ToolExecutor(tools)
 model = model.bind_tools(tools)
 
@@ -163,7 +163,7 @@ def stream_app_catch_tool_calls(inputs, thread) -> Optional[AIMessage]:
 
     return tool_call_message
 
-st.title('My First Streamlit App')
+st.title('Human in The Loop - Agent')
 
 user_input = st.text_input("Enter your question:", key="input1")
 #if st.button("Submit Question"):
